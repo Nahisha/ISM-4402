@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[1]:
 
 
 import pandas as pd
@@ -12,7 +12,7 @@ df = pd.read_csv(Location)
 df.head()
 
 
-# In[8]:
+# In[2]:
 
 
 def gen_to_num(x):
@@ -22,26 +22,26 @@ def gen_to_num(x):
         return 0
 
 
-# In[9]:
+# In[3]:
 
 
 df['gender_val'] = df['gender'].apply(gen_to_num)
 df.tail()
 
 
-# In[10]:
+# In[5]:
 
 
 import statsmodels.formula.api as sm
-result = sm.ols(formula='gender ~ age + exercise + hours + gender_val', data=df).fit()
+result = sm.ols(formula='grade ~ age + exercise + hours + gender_val', data=df).fit()
 print (result.summary())
 
 
-# In[11]:
+# In[6]:
 
 
 import statsmodels.formula.api as sm
-result = sm.ols(formula='gender ~ exercise + hours + gender_val', data=df).fit()
+result = sm.ols(formula='grade ~ exercise + hours + gender_val', data=df).fit()
 print (result.summary())
 
 
